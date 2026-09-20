@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Portfolio de Sandra Erentxun, Full Stack Developer e IT Specialist." />
+
+    <title>Sandra Erentxun | Full Stack Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+       HEADER
+  ========================== -->
+
+    <header class="header">
+      <div class="header__container">
+        <a href="#home" class="brand" aria-label="Ir al inicio">
+          <span class="brand__symbol">&lt;/&gt;</span>
+          <span class="brand__name">sansdev</span>
+        </a>
+
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="#home">Inicio</a>
+          <a href="#about">Sobre mí</a>
+          <a href="#career">Trayectoria</a>
+          <a href="#portfolio">Portfolio</a>
+        </nav>
+
+        <div class="header__actions">
+          <button class="theme-toggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">
+            <!-- Sol -->
+            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+            </svg>
+
+            <!-- Luna -->
+            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+            </svg>
+          </button>
+
+          <div class="languages" aria-label="Idioma">
+            <button class="language-button is-active" type="button" data-lang="es">ES</button>
+
+            <button class="language-button" type="button" data-lang="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- =========================
+         HERO
+    ========================== -->
+
+      <section id="home" class="hero">
+        <img class="hero__nodes hero__nodes--top hero__nodes--light" src="img/svg/nodos_top.svg" alt="" aria-hidden="true" />
+        <img class="hero__nodes hero__nodes--top hero__nodes--dark" src="img/svg/nodos_top_dark.svg" alt="" aria-hidden="true" />
+        <img class="hero__nodes hero__nodes--bottom hero__nodes--light" src="img/svg/nodos_bottom.svg" alt="" aria-hidden="true" />
+        <img class="hero__nodes hero__nodes--bottom hero__nodes--dark" src="img/svg/nodos_bottom_dark.svg" alt="" aria-hidden="true" />
+
+        <div class="hero__container">
+          <div class="hero__portrait">
+            <img src="img/profile.webp" alt="Sandra Erentxun" />
+          </div>
+
+          <div class="hero__content">
+            <p class="hero__eyebrow">I'm</p>
+
+            <h1>Sandra Erentxun</h1>
+
+            <p class="hero__role"><span id="typewriter"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="files/CV-Sandra-Erentxun.pdf" target="_blank" rel="noopener noreferrer"> Descargar CV </a>
+
+              <div class="hero__socials">
+                <a class="social-link" href="TU_URL_GITHUB" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12 .7C5.7.7.6 5.8.6 12.1c0 5 3.3 9.2 7.8 10.7.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.1v3.1c0 .4.2.7.8.6a11.5 11.5 0 0 0 7.8-10.7C23.4 5.8 18.3.7 12 .7Z"
+                    />
+                  </svg>
+                </a>
+
+                <a class="social-link" href="TU_URL_LINKEDIN" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.99h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.32 7.42a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.1 20.45H3.54V8.99H7.1v11.46z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div class="about__container">
+          <!-- FOTO -->
+          <div class="about__image">
+            <img src="img/about.webp" alt="Sandra Erentxun" />
+          </div>
+
+          <!-- CONTENIDO -->
+          <div class="about__content">
+            <span class="section-label">Sobre mí</span>
+
+            <h2>
+              Desarrollo, sistemas y
+              <span>tecnología.</span>
+            </h2>
+
+            <p class="about__lead">
+              Soy Full Stack Developer y especialista IT, con experiencia combinando desarrollo de software, sistemas e infraestructura tecnológica.
+            </p>
+
+            <p>
+              Actualmente trabajo como IT Manager, donde gestiono el área tecnológica de la empresa y combino administración de sistemas, redes,
+              Microsoft 365, seguridad, soporte y desarrollo de aplicaciones y herramientas internas.
+            </p>
+
+            <p>
+              Me gusta entender la tecnología de principio a fin: desde desarrollar una aplicación hasta desplegarla, administrar los sistemas que la
+              rodean y resolver los problemas que aparecen por el camino.
+            </p>
+
+            <!-- FORMACIÓN -->
+            <div class="about__education">
+              <div class="about__education-header">
+                <span>Formación</span>
+              </div>
+
+              <div class="education__grid">
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="education__column">
+                  <article class="education__item">
+                    <span class="education__date">2022 — 2023</span>
+
+                    <h3>Bootcamp de Programación Web Full Stack</h3>
+
+                    <p>Hack a Boss</p>
+                  </article>
+
+                  <article class="education__item">
+                    <span class="education__date">2022</span>
+
+                    <h3>Desarrollo de Aplicaciones con Node y Express</h3>
+
+                    <p>Ceinpro</p>
+                  </article>
+                </div>
+
+                <!-- COLUMNA DERECHA -->
+                <div class="education__column">
+                  <article class="education__item">
+                    <span class="education__date">2021</span>
+
+                    <h3>Confección y publicación de páginas web</h3>
+
+                    <p>Ceinpro</p>
+                  </article>
+
+                  <article class="education__item">
+                    <span class="education__date">2014 — 2016</span>
+
+                    <h3>GM Sistemas Microinformáticos y Redes</h3>
+
+                    <p>Xabier Zubiri Manteo</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="career" class="career">
+        <div class="career__container">
+          <!-- CABECERA -->
+          <header class="career__header">
+            <span class="section-label">Trayectoria</span>
+
+            <h2>
+              Experiencia
+              <span>profesional.</span>
+            </h2>
+
+            <p>Desarrollo, sistemas y tecnología desde diferentes perspectivas, siempre con un enfoque práctico y orientado a resolver problemas.</p>
+          </header>
+
+          <!-- EXPERIENCIAS -->
+          <div class="career__list">
+            <!-- ELDUAIEN -->
+            <article class="career__job career__job--left">
+              <div class="career__line">
+                <span class="career__dot"></span>
+              </div>
+
+              <div class="career__job-content">
+                <div class="career__meta">
+                  <span class="career__date"> OCT. 2023 — ACTUALIDAD </span>
+                </div>
+
+                <h3>IT Manager</h3>
+
+                <p class="career__company">Elduaien Hizkuntza Eskola</p>
+
+                <p class="career__description">
+                  Responsable del departamento de informática, combinando gestión tecnológica, sistemas, infraestructura y desarrollo de soluciones
+                  internas para dar soporte a la actividad diaria de la empresa.
+                </p>
+
+                <div class="career__details">
+                  <div class="career__detail">
+                    <span>Sistemas</span>
+                    <p>Gestión de equipos, redes, dispositivos e infraestructura tecnológica de los diferentes centros.</p>
+                  </div>
+
+                  <div class="career__detail">
+                    <span>Desarrollo</span>
+                    <p>Desarrollo y mantenimiento de aplicaciones web y herramientas internas orientadas a mejorar procesos.</p>
+                  </div>
+
+                  <div class="career__detail">
+                    <span>Microsoft 365</span>
+                    <p>Administración de usuarios, correo, licencias, permisos, grupos, Teams y herramientas colaborativas.</p>
+                  </div>
+
+                  <div class="career__detail">
+                    <span>Datos & Automatización</span>
+                    <p>Gestión y consulta de bases de datos SQL y automatización de tareas y procesos internos.</p>
+                  </div>
+                </div>
+
+                <div class="career__tech">
+                  <span>Sistemas</span>
+                  <span>Redes</span>
+                  <span>Microsoft 365</span>
+                  <span>Desarrollo Web</span>
+                  <span>SQL</span>
+                  <span>Automatización</span>
+                  <span>Soporte</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- INTELLIGENT BIODATA -->
+            <article class="career__job career__job--right">
+              <div class="career__line">
+                <span class="career__dot"></span>
+              </div>
+
+              <div class="career__job-content">
+                <div class="career__meta">
+                  <span class="career__date"> MAR. 2022 — AGO. 2022 </span>
+                </div>
+
+                <h3>Full Stack Developer</h3>
+
+                <p class="career__company">Intelligent Biodata</p>
+
+                <p class="career__description">
+                  Desarrollo y mantenimiento de una plataforma web, participando tanto en frontend como en backend y creando funcionalidades
+                  orientadas a la gestión interna y al tratamiento de información.
+                </p>
+
+                <div class="career__details">
+                  <div class="career__detail">
+                    <span>Full Stack</span>
+                    <p>Desarrollo de interfaces, lógica de aplicación y nuevas funcionalidades.</p>
+                  </div>
+
+                  <div class="career__detail">
+                    <span>Gestión</span>
+                    <p>Funcionalidades para empleados, usuarios, permisos, vacaciones y proyectos.</p>
+                  </div>
+
+                  <div class="career__detail">
+                    <span>Datos</span>
+                    <p>Tratamiento, análisis y representación visual de información y gráficos.</p>
+                  </div>
+                </div>
+
+                <div class="career__tech">
+                  <span>Frontend</span>
+                  <span>Backend</span>
+                  <span>JavaScript</span>
+                  <span>Datos</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

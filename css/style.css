@@ -1,0 +1,1437 @@
+/* ========================================
+   VARIABLES
+======================================== */
+
+:root {
+  --color-primary: #53a699;
+  --color-dark: #313b38;
+  --color-dark-nav: #252d2b;
+
+  --color-light: #f3f9fc;
+  --color-accent: #0bceaf;
+  --color-mint: #86e6d6;
+  --color-soft: #e3f4f5;
+
+  --header-height: 72px;
+
+  --content-width: 1500px;
+  --wide-width: 1800px;
+  --container-padding: clamp(1.25rem, 5vw, 7rem);
+
+  --font-main: "Roboto", sans-serif;
+}
+
+/* ========================================
+   RESET
+======================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  font-family: var(--font-main);
+  color: var(--color-dark);
+
+  background: var(--color-light);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+
+  height: var(--header-height);
+
+  background: var(--color-light);
+  color: var(--color-dark);
+
+  border-bottom: 1px solid rgb(49 59 56 / 8%);
+
+  z-index: 100;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.header__container {
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--wide-width));
+
+  height: 100%;
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+/* ========================================
+   BRAND
+======================================== */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  font-weight: 700;
+}
+
+.brand__symbol {
+  color: var(--color-primary);
+
+  font-family: monospace;
+  font-size: clamp(1.8rem, 1.5vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand__name {
+  font-size: clamp(1.3rem, 1.15vw, 1.7rem);
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+}
+
+/* ========================================
+   NAV
+======================================== */
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.nav a {
+  position: relative;
+
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--color-primary);
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform 180ms ease;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ========================================
+   HEADER ACTIONS
+======================================== */
+
+.header__actions {
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+}
+
+/* ========================================
+   THEME TOGGLE
+======================================== */
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  padding: 0;
+
+  border: 1px solid rgb(49 59 56 / 10%);
+  border-radius: 50%;
+
+  background: rgb(83 166 153 / 8%);
+  color: var(--color-dark);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--color-primary);
+  color: #fff;
+
+  border-color: var(--color-primary);
+
+  transform: translateY(-2px);
+}
+
+.theme-icon {
+  width: 19px;
+  height: 19px;
+
+  fill: none;
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-icon--moon {
+  display: none;
+}
+
+/* ========================================
+   LANGUAGES
+======================================== */
+
+.languages {
+  display: flex;
+  align-items: center;
+
+  padding: 3px;
+
+  border: 1px solid rgb(49 59 56 / 10%);
+  border-radius: 999px;
+
+  background: rgb(83 166 153 / 8%);
+}
+
+.language-button {
+  min-width: 38px;
+  height: 34px;
+
+  padding: 0 0.65rem;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: transparent;
+  color: var(--color-dark);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.language-button:hover:not(.is-active) {
+  color: var(--color-primary);
+}
+
+.language-button.is-active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ========================================
+   HEADER — DARK MODE
+======================================== */
+
+[data-theme="dark"] .header {
+  background: var(--color-dark-nav);
+  color: #fff;
+
+  border-bottom-color: rgb(255 255 255 / 8%);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: rgb(255 255 255 / 6%);
+  border-color: rgb(255 255 255 / 10%);
+
+  color: var(--color-mint);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+
+  color: #fff;
+}
+
+[data-theme="dark"] .theme-icon--sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-icon--moon {
+  display: block;
+}
+
+[data-theme="dark"] .languages {
+  background: rgb(255 255 255 / 6%);
+  border-color: rgb(255 255 255 / 10%);
+}
+
+[data-theme="dark"] .language-button {
+  color: rgb(255 255 255 / 70%);
+}
+
+[data-theme="dark"] .language-button:hover:not(.is-active) {
+  color: #fff;
+}
+
+[data-theme="dark"] .language-button.is-active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+  position: relative;
+
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  padding-top: var(--header-height);
+
+  background: var(--color-primary);
+
+  overflow: hidden;
+
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .hero {
+  background: var(--color-dark);
+}
+
+/* ========================================
+   HERO — CONTENEDOR
+======================================== */
+
+.hero__container {
+  position: relative;
+  z-index: 2;
+
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--content-width));
+
+  margin-inline: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 0.85fr)
+    minmax(320px, 1fr);
+
+  align-items: center;
+
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+/* ========================================
+   HERO — FOTO
+======================================== */
+
+.hero__portrait {
+  width: min(100%, 390px);
+
+  justify-self: center;
+
+  aspect-ratio: 1;
+}
+
+.hero__portrait img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+/* ========================================
+   HERO — CONTENIDO
+======================================== */
+
+.hero__content {
+  color: #fff;
+}
+
+.hero__eyebrow {
+  margin: 0 0 0.35rem;
+
+  font-size: clamp(1.35rem, 1.5vw, 1.8rem);
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* ========================================
+   HERO — NOMBRE
+======================================== */
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(3.2rem, 4.8vw, 5.6rem);
+  font-weight: 700;
+  line-height: 0.95;
+
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+
+  color: var(--color-primary);
+
+  text-shadow:
+    -1px -1px 0 #fff,
+    0 -1px 0 #fff,
+    1px -1px 0 #fff,
+    1px 0 0 #fff,
+    1px 1px 0 #fff,
+    0 1px 0 #fff,
+    -1px 1px 0 #fff,
+    -1px 0 0 #fff;
+}
+
+/* ========================================
+   HERO — ROL
+======================================== */
+
+.hero__role {
+  margin: 1.2rem 0 0;
+
+  font-size: clamp(1.5rem, 2vw, 2.25rem);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* ========================================
+   HERO — TYPEWRITER
+======================================== */
+
+.typewriter-cursor {
+  display: inline-block;
+
+  width: 2px;
+  height: 1em;
+
+  margin-left: 0.15em;
+
+  background: currentColor;
+
+  vertical-align: -0.08em;
+}
+
+.typewriter-cursor.is-blinking {
+  animation: cursor-blink 0.8s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   HERO — ACCIONES
+======================================== */
+
+.hero__actions {
+  margin-top: 2rem;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 1.5rem;
+}
+
+/* ========================================
+   BOTONES
+======================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+
+  padding: 0.8rem 1.6rem;
+
+  border-radius: 999px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button--primary {
+  background: #fff;
+  color: var(--color-dark);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 22px rgb(49 59 56 / 18%);
+}
+
+/* ========================================
+   REDES SOCIALES
+======================================== */
+
+.hero__socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  gap: 1rem;
+}
+
+.hero__socials .social-link {
+  width: 36px;
+  height: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 36px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.hero__socials .social-link svg {
+  display: block;
+
+  width: 36px;
+  height: 36px;
+
+  fill: currentColor;
+}
+
+.hero__socials .social-link:hover {
+  transform: translateY(-2px);
+
+  filter: drop-shadow(0 8px 10px rgb(49 59 56 / 25%));
+}
+
+/* ========================================
+   NODOS
+======================================== */
+
+.hero__nodes {
+  position: absolute;
+
+  z-index: 1;
+
+  width: clamp(220px, 22vw, 520px);
+  height: auto;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__nodes--top {
+  top: var(--header-height);
+  right: 0;
+}
+
+.hero__nodes--bottom {
+  bottom: 0;
+  left: 0;
+}
+
+.hero__nodes--dark {
+  display: none;
+}
+
+[data-theme="dark"] .hero__nodes--light {
+  display: none;
+}
+
+[data-theme="dark"] .hero__nodes--dark {
+  display: block;
+}
+
+/* ========================================
+   NODOS — DARK MODE
+======================================== */
+
+[data-theme="dark"] .hero__nodes {
+  color: var(--color-primary);
+}
+
+/* ========================================
+   ABOUT
+======================================== */
+
+.about {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(6rem, 9vw, 10rem) 0;
+  background: var(--color-light);
+  color: var(--color-dark);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.about__container {
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--content-width));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns:
+    minmax(450px, 1fr)
+    minmax(300px, 0.8fr);
+  grid-template-areas: "content image";
+  align-items: center;
+  gap: clamp(4rem, 8vw, 9rem);
+}
+
+.about__content {
+  grid-area: content;
+}
+
+/* ========================================
+   ABOUT — IMAGEN
+======================================== */
+
+.about__image {
+  position: relative;
+  width: min(100%, 520px);
+  justify-self: center;
+}
+
+.about__image::before {
+  content: "";
+
+  position: absolute;
+
+  width: 72%;
+  height: 72%;
+
+  left: -22px;
+  bottom: -22px;
+
+  background: var(--color-primary);
+
+  border-radius: 2rem;
+
+  z-index: 0;
+}
+
+.about__image img {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+
+  border-radius: 2rem;
+
+  filter: grayscale(100%) contrast(1.05) brightness(0.95);
+}
+
+/* ========================================
+   ABOUT — CONTENIDO
+======================================== */
+
+.section-label {
+  display: inline-block;
+
+  margin-bottom: 1rem;
+
+  color: var(--color-primary);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.about h2 {
+  max-width: 800px;
+
+  margin: 0 0 2rem;
+
+  font-size: clamp(2.6rem, 4vw, 4.6rem);
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.about h2 span {
+  color: var(--color-primary);
+}
+
+.about__content > p {
+  max-width: 720px;
+
+  margin: 0 0 1.25rem;
+
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.75;
+
+  color: rgb(49 59 56 / 76%);
+}
+
+.about__content .about__lead {
+  font-size: clamp(1.1rem, 1.35vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.6;
+
+  color: var(--color-dark);
+}
+
+/* ========================================
+   ABOUT — FORMACIÓN
+======================================== */
+
+.about__education {
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+}
+
+.about__education-header {
+  margin-bottom: 1.5rem;
+
+  padding-bottom: 0.8rem;
+
+  border-bottom: 1px solid rgb(49 59 56 / 15%);
+}
+
+.about__education-header span {
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+
+  color: var(--color-primary);
+}
+
+.education__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 2.5rem;
+}
+
+.education__column {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+.education__item {
+  position: relative;
+
+  padding-left: 1rem;
+
+  border-left: 2px solid var(--color-primary);
+}
+
+.education__date {
+  display: block;
+
+  margin-bottom: 0.5rem;
+
+  color: var(--color-primary);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+}
+
+.education__item h3 {
+  margin: 0 0 0.35rem;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.education__item p {
+  margin: 0;
+
+  color: rgb(49 59 56 / 58%);
+
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ========================================
+   ABOUT — DARK MODE
+======================================== */
+
+[data-theme="dark"] .about {
+  background: var(--color-dark-nav);
+  color: #fff;
+}
+
+[data-theme="dark"] .about__content > p {
+  color: rgb(255 255 255 / 65%);
+}
+
+[data-theme="dark"] .about__content .about__lead {
+  color: #fff;
+}
+
+[data-theme="dark"] .about__education-header {
+  border-bottom-color: rgb(255 255 255 / 15%);
+}
+
+[data-theme="dark"] .education__item p {
+  color: rgb(255 255 255 / 50%);
+}
+
+/* ========================================
+   CAREER
+======================================== */
+
+.career {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 100vh;
+
+  padding: clamp(6rem, 9vw, 10rem) 0;
+
+  background: #fff;
+  color: var(--color-dark);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.career__container {
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--content-width));
+
+  margin-inline: auto;
+}
+
+/* ========================================
+   CAREER — HEADER
+======================================== */
+
+.career__header {
+  max-width: 850px;
+
+  margin-bottom: clamp(6rem, 9vw, 10rem);
+}
+
+.career__header .section-label {
+  color: var(--color-primary);
+}
+
+.career__header h2 {
+  margin: 0 0 1.5rem;
+
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+}
+
+.career__header h2 span {
+  color: var(--color-primary);
+}
+
+.career__header > p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: rgb(49 59 56 / 65%);
+
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.7;
+}
+
+/* ========================================
+   CAREER — LIST
+======================================== */
+
+.career__list {
+  display: flex;
+  flex-direction: column;
+
+  gap: clamp(8rem, 13vw, 14rem);
+}
+
+/* ========================================
+   CAREER — JOB
+======================================== */
+
+.career__job {
+  position: relative;
+
+  width: 100%;
+  min-height: 500px;
+}
+
+.career__job-content {
+  position: relative;
+  z-index: 3;
+
+  width: min(100%, 900px);
+}
+
+/* Primera experiencia a la izquierda */
+.career__job--left .career__job-content {
+  margin-right: auto;
+}
+
+/* Segunda experiencia a la derecha */
+.career__job--right .career__job-content {
+  margin-left: auto;
+}
+
+/* ========================================
+   CAREER — WATERMARK
+   ELDUAIEN / BIODATA
+======================================== */
+
+.career__watermark {
+  position: absolute;
+
+  top: -4.5rem;
+
+  z-index: 0;
+
+  color: rgb(83 166 153 / 8%);
+
+  font-size: clamp(6rem, 12vw, 13rem);
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.career__job--left .career__watermark {
+  right: 0;
+}
+
+.career__job--right .career__watermark {
+  left: 0;
+}
+
+/* ========================================
+   CAREER — LINE
+======================================== */
+
+.career__line {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 1px;
+
+  margin-bottom: 2.5rem;
+
+  background: rgb(49 59 56 / 15%);
+}
+
+.career__line::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  width: 38%;
+  height: 1px;
+
+  background: var(--color-primary);
+}
+
+/* Línea verde desde la izquierda */
+.career__job--left .career__line::after {
+  left: 0;
+}
+
+/* Línea verde desde la derecha */
+.career__job--right .career__line::after {
+  right: 0;
+}
+
+/* ========================================
+   CAREER — DOT
+======================================== */
+
+.career__dot {
+  position: absolute;
+
+  top: 50%;
+
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+
+  background: var(--color-primary);
+
+  transform: translateY(-50%);
+
+  box-shadow: 0 0 0 6px rgb(83 166 153 / 12%);
+}
+
+.career__job--left .career__dot {
+  left: 38%;
+}
+
+.career__job--right .career__dot {
+  right: 38%;
+}
+
+/* ========================================
+   CAREER — META
+======================================== */
+
+.career__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  margin-bottom: 1rem;
+}
+
+.career__date {
+  color: var(--color-primary);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+.career__number {
+  color: rgb(49 59 56 / 35%);
+
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+/* ========================================
+   CAREER — TITLE
+======================================== */
+
+.career__job h3 {
+  margin: 0 0 0.5rem;
+
+  font-size: clamp(2.4rem, 4.5vw, 5rem);
+  font-weight: 700;
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+}
+
+.career__company {
+  margin: 0 0 2rem;
+
+  color: var(--color-primary);
+
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 600;
+}
+
+.career__company span {
+  color: rgb(49 59 56 / 45%);
+
+  font-weight: 500;
+}
+
+/* ========================================
+   CAREER — DESCRIPTION
+======================================== */
+
+.career__description {
+  max-width: 760px;
+
+  margin: 0 0 3rem;
+
+  color: rgb(49 59 56 / 70%);
+
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.75;
+}
+
+/* ========================================
+   CAREER — DETAILS
+======================================== */
+
+.career__details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  margin-bottom: 2.5rem;
+
+  border-top: 1px solid rgb(49 59 56 / 12%);
+}
+
+.career__detail {
+  padding: 1.5rem 2rem 1.5rem 0;
+
+  border-bottom: 1px solid rgb(49 59 56 / 12%);
+}
+
+.career__detail:nth-child(even) {
+  padding-left: 2rem;
+
+  border-left: 1px solid rgb(49 59 56 / 12%);
+}
+
+.career__detail > span {
+  display: block;
+
+  margin-bottom: 0.6rem;
+
+  color: var(--color-dark);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.career__detail p {
+  margin: 0;
+
+  color: rgb(49 59 56 / 60%);
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   CAREER — TECHNOLOGIES
+======================================== */
+
+.career__tech {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  row-gap: 0.7rem;
+}
+
+.career__tech span {
+  display: inline-flex;
+  align-items: center;
+
+  color: rgb(49 59 56 / 48%);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.career__tech span:not(:last-child)::after {
+  content: "/";
+
+  margin: 0 0.8rem;
+
+  color: var(--color-primary);
+}
+
+/* ========================================
+   CAREER — DARK MODE
+======================================== */
+
+[data-theme="dark"] .career {
+  background: var(--color-dark);
+  color: #fff;
+}
+
+[data-theme="dark"] .career__header > p {
+  color: rgb(255 255 255 / 60%);
+}
+
+[data-theme="dark"] .career__line {
+  background: rgb(255 255 255 / 15%);
+}
+
+[data-theme="dark"] .career__number {
+  color: rgb(255 255 255 / 35%);
+}
+
+[data-theme="dark"] .career__company span {
+  color: rgb(255 255 255 / 45%);
+}
+
+[data-theme="dark"] .career__description {
+  color: rgb(255 255 255 / 70%);
+}
+
+[data-theme="dark"] .career__details {
+  border-top-color: rgb(255 255 255 / 12%);
+}
+
+[data-theme="dark"] .career__detail {
+  border-bottom-color: rgb(255 255 255 / 12%);
+}
+
+[data-theme="dark"] .career__detail:nth-child(even) {
+  border-left-color: rgb(255 255 255 / 12%);
+}
+
+[data-theme="dark"] .career__detail > span {
+  color: #fff;
+}
+
+[data-theme="dark"] .career__detail p {
+  color: rgb(255 255 255 / 52%);
+}
+
+[data-theme="dark"] .career__tech span {
+  color: rgb(255 255 255 / 48%);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 720px) {
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    padding-block: calc(var(--header-height) + 3rem) 3rem;
+  }
+
+  .hero__container {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    text-align: center;
+  }
+
+  .hero__portrait {
+    width: min(62vw, 300px);
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__socials {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .hero__nodes {
+    width: clamp(150px, 42vw, 230px);
+  }
+
+  .about {
+    padding-block: 5rem;
+  }
+
+  .about__container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "content";
+
+    gap: 4rem;
+  }
+
+  .about__image {
+    width: min(78vw, 400px);
+  }
+
+  .about__content {
+    text-align: left;
+  }
+
+  .education__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .education__column {
+    gap: 1.5rem;
+  }
+
+  .career {
+    padding-block: 5rem;
+  }
+
+  .career__header {
+    margin-bottom: 6rem;
+  }
+
+  .career__list {
+    gap: 8rem;
+  }
+
+  .career__job {
+    min-height: 0;
+  }
+
+  .career__job-content {
+    width: 100%;
+  }
+
+  /* WATERMARK */
+
+  .career__watermark {
+    top: -3rem;
+
+    font-size: clamp(5rem, 22vw, 8rem);
+
+    opacity: 0.8;
+  }
+
+  .career__job--left .career__watermark,
+  .career__job--right .career__watermark {
+    right: -1rem;
+    left: auto;
+  }
+
+  /* LINE */
+
+  .career__line {
+    margin-bottom: 2rem;
+  }
+
+  .career__line::after {
+    width: 45%;
+  }
+
+  .career__job--left .career__line::after,
+  .career__job--right .career__line::after {
+    right: auto;
+    left: 0;
+  }
+
+  .career__job--left .career__dot,
+  .career__job--right .career__dot {
+    right: auto;
+    left: 45%;
+  }
+
+  /* META */
+
+  .career__meta {
+    gap: 1rem;
+  }
+
+  /* DETAILS */
+
+  .career__details {
+    grid-template-columns: 1fr;
+  }
+
+  .career__detail,
+  .career__detail:nth-child(even) {
+    padding: 1.25rem 0;
+
+    border-left: 0;
+  }
+
+  [data-theme="dark"] .career__detail:nth-child(even) {
+    border-left: 0;
+  }
+
+  /* TECH */
+
+  .career__tech {
+    row-gap: 0.7rem;
+  }
+}
