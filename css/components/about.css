@@ -1,0 +1,235 @@
+/* ========================================
+   ABOUT
+======================================== */
+
+.about {
+  height: calc(100vh - var(--header-height));
+
+  display: flex;
+  align-items: center;
+
+  background: var(--color-light);
+  color: var(--color-dark);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.about__container {
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--content-width));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns:
+    minmax(450px, 1fr)
+    minmax(280px, 0.72fr);
+
+  grid-template-areas: "content image";
+  align-items: center;
+  gap: clamp(3rem, 5vw, 5rem);
+}
+
+.about__content {
+  grid-area: content;
+}
+
+/* ========================================
+   ABOUT — IMAGEN
+======================================== */
+
+.about__image {
+  grid-area: image;
+
+  position: relative;
+
+  width: min(100%, 390px);
+
+  justify-self: center;
+}
+
+.about__image::before {
+  content: "";
+
+  position: absolute;
+
+  width: 72%;
+  height: 72%;
+
+  left: -20px;
+  bottom: -20px;
+
+  background: var(--color-primary);
+
+  border-radius: 1.75rem;
+
+  z-index: 0;
+}
+
+.about__image img {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  aspect-ratio: 4 / 5;
+
+  object-fit: cover;
+
+  border-radius: 1.75rem;
+
+  filter: grayscale(100%) contrast(1.05) brightness(0.95);
+}
+
+/* ========================================
+   ABOUT — CONTENIDO
+======================================== */
+
+.section-label {
+  display: inline-block;
+
+  margin-bottom: 0.75rem;
+
+  color: var(--color-primary);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.about h2 {
+  max-width: 700px;
+
+  margin: 0 0 1.25rem;
+
+  font-size: clamp(2.3rem, 3vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.about h2 span {
+  color: var(--color-primary);
+}
+
+.about__content > p {
+  max-width: 700px;
+
+  margin: 0 0 1rem;
+
+  font-size: clamp(0.95rem, 1vw, 1.05rem);
+  line-height: 1.65;
+
+  color: rgb(49 59 56 / 76%);
+}
+
+.about__content .about__lead {
+  font-size: clamp(1.05rem, 1.15vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.55;
+
+  color: var(--color-dark);
+}
+
+/* ========================================
+   ABOUT — FORMACIÓN
+======================================== */
+
+.about__education {
+  margin-top: clamp(1.5rem, 2.5vh, 2rem);
+}
+
+.about__education-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+
+  border-bottom: 1px solid rgb(49 59 56 / 15%);
+}
+
+.about__education-header span {
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+
+  color: var(--color-primary);
+}
+
+.education__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 2rem;
+}
+
+.education__column {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.education__item {
+  position: relative;
+
+  padding-left: 0.9rem;
+
+  border-left: 2px solid var(--color-primary);
+}
+
+.education__date {
+  display: block;
+
+  margin-bottom: 0.35rem;
+
+  color: var(--color-primary);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+}
+
+.education__item h3 {
+  margin: 0 0 0.25rem;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.education__item p {
+  margin: 0;
+
+  color: rgb(49 59 56 / 58%);
+
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ========================================
+   ABOUT — DARK MODE
+======================================== */
+
+[data-theme="dark"] .about {
+  background: var(--color-dark-nav);
+  color: #fff;
+}
+
+[data-theme="dark"] .about__content > p {
+  color: rgb(255 255 255 / 65%);
+}
+
+[data-theme="dark"] .about__content .about__lead {
+  color: #fff;
+}
+
+[data-theme="dark"] .about__education-header {
+  border-bottom-color: rgb(255 255 255 / 15%);
+}
+
+[data-theme="dark"] .education__item p {
+  color: rgb(255 255 255 / 50%);
+}

@@ -1,0 +1,301 @@
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+  position: relative;
+
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  padding-top: var(--header-height);
+
+  background: var(--color-primary);
+
+  overflow: hidden;
+
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .hero {
+  background: var(--color-dark);
+}
+
+/* ========================================
+   HERO — CONTENEDOR
+======================================== */
+
+.hero__container {
+  position: relative;
+  z-index: 2;
+
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--content-width));
+
+  margin-inline: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 0.8fr)
+    minmax(320px, 1fr);
+
+  align-items: center;
+
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+/* ========================================
+   HERO — FOTO
+======================================== */
+
+.hero__portrait {
+  width: min(100%, 350px);
+
+  justify-self: center;
+
+  aspect-ratio: 1;
+}
+
+.hero__portrait img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+/* ========================================
+   HERO — CONTENIDO
+======================================== */
+
+.hero__content {
+  color: #fff;
+}
+
+.hero__eyebrow {
+  margin: 0 0 0.35rem;
+
+  font-size: clamp(1.2rem, 1.3vw, 1.55rem);
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* ========================================
+   HERO — NOMBRE
+======================================== */
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(3rem, 4.1vw, 4.8rem);
+  font-weight: 700;
+  line-height: 0.95;
+
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+
+  color: var(--color-primary);
+
+  text-shadow:
+    -1px -1px 0 #fff,
+    0 -1px 0 #fff,
+    1px -1px 0 #fff,
+    1px 0 0 #fff,
+    1px 1px 0 #fff,
+    0 1px 0 #fff,
+    -1px 1px 0 #fff,
+    -1px 0 0 #fff;
+}
+
+/* ========================================
+   HERO — ROL
+======================================== */
+
+.hero__role {
+  margin: 1rem 0 0;
+
+  font-size: clamp(1.35rem, 1.7vw, 1.9rem);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* ========================================
+   HERO — TYPEWRITER
+======================================== */
+
+.typewriter-cursor {
+  display: inline-block;
+
+  width: 2px;
+  height: 1em;
+
+  margin-left: 0.15em;
+
+  background: currentColor;
+
+  vertical-align: -0.08em;
+}
+
+.typewriter-cursor.is-blinking {
+  animation: cursor-blink 0.8s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   HERO — ACCIONES
+======================================== */
+
+.hero__actions {
+  margin-top: 1.75rem;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 1.25rem;
+}
+
+/* ========================================
+   BOTONES
+======================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 46px;
+
+  padding: 0.75rem 1.5rem;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button--primary {
+  background: #fff;
+  color: var(--color-dark);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 22px rgb(49 59 56 / 18%);
+}
+
+/* ========================================
+   REDES SOCIALES
+======================================== */
+
+.hero__socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  gap: 1rem;
+}
+
+.hero__socials .social-link {
+  width: 34px;
+  height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 34px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.hero__socials .social-link svg {
+  display: block;
+
+  width: 34px;
+  height: 34px;
+
+  fill: currentColor;
+}
+
+.hero__socials .social-link:hover {
+  transform: translateY(-2px);
+
+  filter: drop-shadow(0 8px 10px rgb(49 59 56 / 25%));
+}
+
+/* ========================================
+   NODOS
+======================================== */
+
+.hero__nodes {
+  position: absolute;
+
+  z-index: 1;
+
+  width: clamp(220px, 19vw, 440px);
+  height: auto;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__nodes--top {
+  top: var(--header-height);
+  right: 0;
+}
+
+.hero__nodes--bottom {
+  bottom: 0;
+  left: 0;
+}
+
+.hero__nodes--dark {
+  display: none;
+}
+
+[data-theme="dark"] .hero__nodes--light {
+  display: none;
+}
+
+[data-theme="dark"] .hero__nodes--dark {
+  display: block;
+}
+
+/* ========================================
+   NODOS — DARK MODE
+======================================== */
+
+[data-theme="dark"] .hero__nodes {
+  color: var(--color-primary);
+}

@@ -1,0 +1,344 @@
+/* ========================================
+   CAREER
+======================================== */
+
+.career {
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: var(--color-dark);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.career__container {
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--content-width));
+
+  margin-inline: auto;
+}
+
+/* ========================================
+   CAREER — HEADER
+======================================== */
+
+.career__header {
+  max-width: 760px;
+  margin-bottom: 3.75rem;
+}
+
+.career__header h2 {
+  margin: 0 0 1.25rem;
+
+  color: var(--color-dark);
+
+  font-size: clamp(2.5rem, 3vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.career__header > p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: rgb(49 59 56 / 68%);
+
+  font-size: clamp(0.95rem, 1vw, 1.05rem);
+  line-height: 1.65;
+}
+
+/* ========================================
+   CAREER — LIST
+======================================== */
+
+.career__list {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  align-items: start;
+
+  gap: clamp(3rem, 5vw, 5rem);
+}
+
+/* ========================================
+   CAREER — JOB
+======================================== */
+
+.career__job {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.career__job-content {
+  width: 100%;
+}
+
+/* ========================================
+   CAREER — LINE
+======================================== */
+
+.career__line {
+  position: relative;
+
+  width: 100%;
+  height: 1px;
+
+  margin-bottom: 1.75rem;
+
+  background: rgb(49 59 56 / 14%);
+}
+
+.career__line::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 1px;
+
+  background: var(--color-primary);
+}
+
+/* PRIMERA EXPERIENCIA — hasta el punto */
+
+.career__job--left .career__line::before {
+  width: 45%;
+}
+
+/* SEGUNDA EXPERIENCIA — línea completa */
+
+.career__job--right .career__line::before {
+  width: 100%;
+}
+
+/* ========================================
+   CAREER — DOT
+======================================== */
+
+.career__dot {
+  position: absolute;
+  top: 50%;
+
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+
+  background: var(--color-primary);
+
+  box-shadow: 0 0 0 5px rgb(83 166 153 / 12%);
+}
+
+/* PRIMERA EXPERIENCIA — punto en medio */
+
+.career__job--left .career__dot {
+  left: 45%;
+
+  transform: translate(-50%, -50%);
+}
+
+/* SEGUNDA EXPERIENCIA — punto al final */
+
+.career__job--right .career__dot {
+  right: 0;
+  left: auto;
+
+  transform: translate(50%, -50%);
+}
+
+/* ========================================
+   CAREER — META
+======================================== */
+
+.career__meta {
+  margin-bottom: 0.7rem;
+}
+
+.career__date {
+  display: block;
+
+  color: var(--color-primary);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ========================================
+   CAREER — TITLE
+======================================== */
+
+.career__job h3 {
+  margin: 0 0 0.45rem;
+
+  color: var(--color-dark);
+
+  font-size: clamp(1.9rem, 2.2vw, 2.65rem);
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.career__company {
+  margin: 0 0 1.35rem;
+
+  color: var(--color-primary);
+
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   CAREER — DESCRIPTION
+======================================== */
+
+.career__description {
+  max-width: 620px;
+
+  margin: 0 0 1.75rem;
+
+  color: rgb(49 59 56 / 68%);
+
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+/* ========================================
+   CAREER — DETAILS
+======================================== */
+
+.career__details {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  margin-bottom: 1.5rem;
+
+  border-top: 1px solid rgb(49 59 56 / 12%);
+}
+
+.career__detail {
+  min-width: 0;
+
+  padding: 1rem 1.25rem 1rem 0;
+
+  border-bottom: 1px solid rgb(49 59 56 / 12%);
+}
+
+.career__detail:nth-child(even) {
+  padding-right: 0;
+  padding-left: 1.25rem;
+
+  border-left: 1px solid rgb(49 59 56 / 12%);
+}
+
+.career__detail > span {
+  display: block;
+
+  margin-bottom: 0.4rem;
+
+  color: var(--color-dark);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.career__detail p {
+  margin: 0;
+
+  color: rgb(49 59 56 / 58%);
+
+  font-size: 0.79rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   CAREER — TECHNOLOGIES
+======================================== */
+
+.career__tech {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  row-gap: 0.6rem;
+}
+
+.career__tech span {
+  display: inline-flex;
+  align-items: center;
+
+  color: rgb(49 59 56 / 45%);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.career__tech span:not(:last-child)::after {
+  content: "/";
+
+  margin: 0 0.65rem;
+
+  color: var(--color-primary);
+}
+
+/* ========================================
+   CAREER — DARK MODE
+======================================== */
+
+[data-theme="dark"] .career {
+  background: var(--color-dark);
+  color: #fff;
+}
+
+[data-theme="dark"] .career__header h2,
+[data-theme="dark"] .career__job h3,
+[data-theme="dark"] .career__detail > span {
+  color: #fff;
+}
+
+[data-theme="dark"] .career__header > p,
+[data-theme="dark"] .career__description {
+  color: rgb(255 255 255 / 65%);
+}
+
+[data-theme="dark"] .career__line {
+  background: rgb(255 255 255 / 14%);
+}
+
+[data-theme="dark"] .career__details {
+  border-top-color: rgb(255 255 255 / 12%);
+}
+
+[data-theme="dark"] .career__detail {
+  border-bottom-color: rgb(255 255 255 / 12%);
+}
+
+[data-theme="dark"] .career__detail:nth-child(even) {
+  border-left-color: rgb(255 255 255 / 12%);
+}
+
+[data-theme="dark"] .career__detail p {
+  color: rgb(255 255 255 / 52%);
+}
+
+[data-theme="dark"] .career__tech span {
+  color: rgb(255 255 255 / 45%);
+}

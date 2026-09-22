@@ -1,0 +1,22 @@
+/* ========================================
+   VARIABLES
+======================================== */
+
+:root {
+  --color-primary: #53a699;
+  --color-dark: #313b38;
+  --color-dark-nav: #252d2b;
+
+  --color-light: #f3f9fc;
+  --color-accent: #0bceaf;
+  --color-mint: #86e6d6;
+  --color-soft: #e3f4f5;
+
+  --header-height: 72px;
+
+  --content-width: 1400px;
+  --wide-width: 1800px;
+  --container-padding: clamp(1.25rem, 4vw, 5rem);
+
+  --font-main: "Roboto", sans-serif;
+}

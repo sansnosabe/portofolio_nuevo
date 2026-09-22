@@ -1,0 +1,136 @@
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 720px) {
+  .nav {
+    display: none;
+  }
+
+  /* HERO */
+
+  .hero {
+    padding-block: calc(var(--header-height) + 3rem) 3rem;
+  }
+
+  .hero__container {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    text-align: center;
+  }
+
+  .hero__portrait {
+    width: min(62vw, 280px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
+  .hero__role {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__socials {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .hero__nodes {
+    width: clamp(150px, 42vw, 230px);
+  }
+
+  /* ABOUT */
+
+  .about {
+    height: auto;
+    min-height: 100vh;
+
+    padding: 4rem 0;
+
+    overflow: visible;
+  }
+
+  .about__container {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "image"
+      "content";
+
+    gap: 3.5rem;
+  }
+
+  .about__image {
+    grid-area: image;
+
+    position: relative;
+
+    width: min(100%, 430px);
+
+    justify-self: center;
+  }
+
+  .about__content {
+    text-align: left;
+  }
+
+  .about h2 {
+    font-size: clamp(2.3rem, 10vw, 3.2rem);
+  }
+
+  .education__grid {
+    grid-template-columns: 1fr;
+
+    gap: 1.25rem;
+  }
+
+  .education__column {
+    gap: 1.25rem;
+  }
+}
+
+/* CAREER */
+
+.career {
+  min-height: 0;
+
+  display: block;
+
+  padding: 4rem 0;
+}
+
+.career__header {
+  margin-bottom: 3.5rem;
+}
+
+.career__header h2 {
+  font-size: clamp(2.3rem, 10vw, 3.2rem);
+}
+
+.career__list {
+  grid-template-columns: 1fr;
+
+  gap: 4.5rem;
+}
+
+.career__job h3 {
+  font-size: clamp(2rem, 9vw, 2.7rem);
+}
+
+.career__details {
+  grid-template-columns: 1fr;
+}
+
+.career__detail,
+.career__detail:nth-child(even) {
+  padding: 1rem 0;
+
+  border-left: 0;
+}

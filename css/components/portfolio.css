@@ -1,0 +1,13 @@
+.portfolio {
+  min-height: 100vh;
+
+  padding: 5rem 0;
+
+  background: var(--color-light);
+
+  transition: 0.3s;
+}
+
+[data-theme="dark"] .portfolio {
+  background: var(--color-dark);
+}
